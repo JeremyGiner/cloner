@@ -89,6 +89,9 @@ class Cloner {
 
     function cloneClass <T> (inValue:T):T {
         var outValue:T = Type.createEmptyInstance(Type.getClass(inValue));
+		
+		cache.set( inValue, outValue );// Preemptive set for recursion
+		
         var fields:Array<String> = Reflect.fields(inValue);
         for (i in 0...fields.length) {
             var field = fields[i];
