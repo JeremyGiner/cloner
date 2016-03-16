@@ -4,6 +4,7 @@ import haxe.ds.ObjectMap;
 import Type.ValueType;
 import haxe.ds.IntMap;
 import haxe.ds.StringMap;
+
 class Cloner {
 
     var cache:ObjectMap<Dynamic,Dynamic>;
@@ -93,5 +94,10 @@ class Cloner {
         }
         return outValue;
     }
+	
+	
+	static public function STclone <T> (v:T):T {
+		return (new Cloner()).clone( v );
+	}
 
 }
