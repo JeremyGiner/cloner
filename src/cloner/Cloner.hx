@@ -36,6 +36,9 @@ class Cloner {
     public function _clone <T> (v:T):T {
         if(Type.getClassName(cast v) != null)
             return v;
+		// Quick fix for PHP string
+		if ( Std.is( v, String ) )
+			return v;
         switch(Type.typeof(v)){
             case TNull:
                 return null;
